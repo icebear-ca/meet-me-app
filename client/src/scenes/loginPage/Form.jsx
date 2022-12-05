@@ -181,7 +181,7 @@ const Form = () => {
                                                     acceptedFiles=".jpg,.jpeg,.png"
                                                     multiple={false}
                                                     onDrop={(AcceptedFiles) =>
-                                                        setFieldValue("picture", acceptedFiles[0])
+                                                        setFieldValue("picture", AcceptedFiles[0])
                                                     }
                                                     >
                                                         {({ getRootProps, getInputProps }) => (
@@ -208,17 +208,66 @@ const Form = () => {
                                 )}
 
                                 <TextField
-                                    label="Last Name"
+                                    label="Email"
                                     onBlur={handleBlur}
                                     onChange={handleChange}
-                                    value={values.lastName}
-                                    name="firstName"
-                                    error={Boolean(touched.lastName) && Boolean(errors.lastName)}
-                                    helperText={touched.lastName && errors.lastName}
-                                    sx={{ gridColumn: "span 2" }}
+                                    value={values.email}
+                                    name="email"
+                                    error={Boolean(touched.email) && Boolean(errors.email)}
+                                    helperText={touched.email && errors.email}
+                                    sx={{ gridColumn: "span 4" }}
+                                />
+                                <TextField
+                                    label="Password"
+                                    type="password"
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
+                                    value={values.password}
+                                    name="password"
+                                    error={Boolean(touched.password) && Boolean(errors.password)}
+                                    helperText={touched.password && errors.password}
+                                    sx={{ gridColumn: "span 4" }}
+                                />
+                            </Box>
+
+                            {/* buttons*/}
+                            <Box>
+                                <Button
+                                    fullWidth
+                                    type="submit"
+                                    sx={{
+                                        m: "2rem 0",
+                                        p: "1rem",
+                                        backgroundColor: palette.primary.main,
+                                        color: palette.background.alt,
+                                        "&:hover": { color: palette.primary.main },
+                                    }}
+                                    >
+                                        {isLogin ? "LOGIN" : "REGISTER"}
+                                    </Button>
+                                    <Typography
+                                        onClick={() => {
+                                            setPageType(isLogin ? "register" : "login");
+                                            resetForm();
+                                        }}
+                                        sx={{
+                                            TextDecoration: "underline",
+                                            color: palette.primary.main,
+                                            "&:hover": {
+                                                cursor: "pointer",
+                                                color: palette.primary.light,
+                                            },
+                                        }}
+                                        >
+                                            {isLogin
+                                                ? "Don't have an account? Sign Up here."
+                                                : "Already have an account? Login here."}
+                                        </Typography>
                             </Box>
                     </form>
                 )}
             </Formik>
-    )
-}
+    );
+};
+
+export default Form;
