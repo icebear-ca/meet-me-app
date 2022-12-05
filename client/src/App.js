@@ -14,7 +14,10 @@ function App() {
       <section id="section2">
         <div class="formArea">
           <main>
-            <p>Form in here.</p>
+            <form action="/#">
+              <label for="fname">First Name:</label><br>
+              <input type="text" id="fname" name="fname" value="First Name" /><br></br>
+            </form>
           </main>
         </div>
       </section> 
