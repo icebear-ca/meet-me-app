@@ -15,7 +15,7 @@ function App() {
         <div class="formArea">
           <main>
             <form action="/#">
-              <label for="fname">First Name:</label><br>
+              <label for="fname">First Name:</label><br></br>
               <input type="text" id="fname" name="fname" value="First Name" /><br></br>
             </form>
           </main>
