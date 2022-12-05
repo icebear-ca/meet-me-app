@@ -3,9 +3,23 @@ import './App.css';
 
 function App() {
   return (
-    <div>
-      <h1>Meet Me</h1>
+
+    <div id="appContainer">
+      <section id="section1">
+        <ul>
+          <li>Meet Me</li>
+        </ul>
+      </section>
+
+      <section id="section2">
+        <div class="formArea">
+          <main>
+            <p>Form in here.</p>
+          </main>
+        </div>
+      </section> 
     </div>
+    
   );
 }
 
