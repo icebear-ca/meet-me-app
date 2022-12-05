@@ -177,10 +177,45 @@ const Form = () => {
                                             borderRadius="5px"
                                             p="1rem"
                                             >
-                                                
+                                                <Dropzone
+                                                    acceptedFiles=".jpg,.jpeg,.png"
+                                                    multiple={false}
+                                                    onDrop={(AcceptedFiles) =>
+                                                        setFieldValue("picture", acceptedFiles[0])
+                                                    }
+                                                    >
+                                                        {({ getRootProps, getInputProps }) => (
+                                                            <Box
+                                                            {...getRootProps()}
+                                                            border={`2px dashed ${palette.primary.main}`}
+                                                            p="1rem"
+                                                            sx={{ "&:hover": {cursor: "pointer" } }}
+                                                            >
+                                                                <input {...getInputProps()} />
+                                                                {!values.picture ?  (
+                                                                    <p>Add Picture Here</p>
+                                                                ) : (
+                                                                    <FlexBetween>
+                                                                        <Typography>{values.pictures.name}</Typography>
+                                                                        <EditOutlinedIcon />
+                                                                    </FlexBetween>
+                                                                )}
+                                                            </Box>
+                                                        )}
+                                                    </Dropzone>
                                             </Box>
                                      </>
                                 )}
+
+                                <TextField
+                                    label="Last Name"
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
+                                    value={values.lastName}
+                                    name="firstName"
+                                    error={Boolean(touched.lastName) && Boolean(errors.lastName)}
+                                    helperText={touched.lastName && errors.lastName}
+                                    sx={{ gridColumn: "span 2" }}
                             </Box>
                     </form>
                 )}
